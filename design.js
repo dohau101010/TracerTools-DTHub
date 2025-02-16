@@ -2,7 +2,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const saokeButton = document.getElementById("saoke");
   attachCheckboxListeners();
 
-  saokeButton.addEventListener("click", downloadNextFile);
+  saokeButton.addEventListener("click", function () {
+    // Chuyển đến trang mới
+    // window.open("bill.html", "_blank"); // Thay "ten_trang_moi.html" bằng đường dẫn trang mới
+
+    const userName = sessionStorage.getItem("userName");
+
+    if (userName) {
+      const database = firebase.database();
+      const userRef = database.ref("Cert/" + userName);
+
+      userRef
+        .once("value")
+        .then((snapshot) => {
+          const value = snapshot.val().Value; // Lấy giá trị từ Firebase
+
+          if (value === 0) {
+            alert("You need to get permission first!");
+          } else if (value === 1) {
+            // Nếu Value = 1, set data-num = 90% và cập nhật nội dung
+            downloadNextFile();
+          }
+        })
+        .catch((error) => {
+          console.error("Lỗi khi đọc dữ liệu từ Firebase:", error);
+        });
+    } else {
+      console.log("Không tìm thấy thông tin người dùng trong sessionStorage.");
+    }
+  });
 });
 
 // document

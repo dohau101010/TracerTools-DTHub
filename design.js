@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((snapshot) => {
           const value = snapshot.val().Value; // Lấy giá trị từ Firebase
 
-          if (value === 0) {
+          if (value == 0) {
             alert("You need to get permission first!");
-          } else if (value === 1) {
+          } else if (value == 1) {
             // Nếu Value = 1, set data-num = 90% và cập nhật nội dung
             downloadNextFile();
           }

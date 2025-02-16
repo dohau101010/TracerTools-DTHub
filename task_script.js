@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const numberElementIQ = document.querySelector(".numberx");
         const numberElementTrials = document.querySelector(".numberxx");
 
-        if (value === 0) {
+        if (value == 0) {
           // Nếu Value = 0, set data-num = 10% và cập nhật nội dung
           numberElement.setAttribute("data-num", "50");
           numberElement.textContent = "50%";
-        } else if (value === 1) {
+        } else if (value == 1) {
           // Nếu Value = 1, set data-num = 90% và cập nhật nội dung
           numberElement.setAttribute("data-num", "90");
           numberElement.textContent = "90%";
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (IA_Status_Cell) {
-          if (value === 0) {
+          if (value == 0) {
             IA_Status_Cell.innerHTML = '<span class="status new">New</span>';
           } else {
             IA_Status_Cell.innerHTML =
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        if (IQvalue === 0) {
+        if (IQvalue == 0) {
           // Nếu Value = 0, set data-num = 10% và cập nhật nội dung
           numberElementIQ.setAttribute("data-num", "50");
           numberElementIQ.textContent = "50%";
-        } else if (value === 1) {
+        } else if (value == 1) {
           // Nếu Value = 1, set data-num = 90% và cập nhật nội dung
           numberElementIQ.setAttribute("data-num", "90");
           numberElementIQ.textContent = "90%";
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (IA_Status_CellIQ) {
-          if (IQvalue === 0) {
+          if (IQvalue == 0) {
             IA_Status_CellIQ.innerHTML = '<span class="status new">New</span>';
           } else {
             IA_Status_CellIQ.innerHTML =

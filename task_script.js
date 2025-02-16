@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tableRows.forEach((row) => {
       const issueID = row.cells[0].textContent.trim();
-      if (issueID === subNameValue) {
+      if (issueID == subNameValue) {
         row.style.fontWeight = "bold"; // Chữ đậm
       } else {
         row.style.fontWeight = "normal"; // Reset về bình thường
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tableRows.forEach((row) => {
       const issueID = row.cells[0].textContent.trim();
-      if (issueID === subNameValue) {
+      if (issueID == subNameValue) {
         const statusCell = row.cells[row.cells.length - 1]; // Cột cuối cùng (IA Status)
         statusCell.innerHTML = '<span class="status on-queue">On Queue</span>';
       }
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const subNameValue = subNameInput.value.trim();
 
     // Kiểm tra điều kiện subName là CERT_BASIS_001
-    if (subNameValue === "CERT_BASIS_001") {
+    if (subNameValue == "CERT_BASIS_001") {
       document.getElementById("modal-iframe").src = "kahoot.html"; // Load trang test.html
       document.getElementById("modal-container").style.display = "flex"; // Hiển thị modal
     } else if (subNameValue == "CERT_IQT_001") {

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attendance Dashboard | By Code Info</title>
+    <link rel="stylesheet" href="infor.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+    />
+  </head>
+
+  <body>
+    <div class="line"></div>
+    <header class="header">
+      <div class="logos">
+        <a href="#">TraceTool-PS</a>
+        <div class="search_box">
+          <input type="search" placeholder="Search Traceability" />
+          <i class="fa-solid fa-search"></i>
+        </div>
+      </div>
+      <div class="user-info">
+        <img class="acc" src="./img/user.png" alt="" />
+        <div id="username">Hello! Fixed-Term Diem Trinh</div>
+      </div>
+
+      <div class="header-icons">
+        <i class="fas fa-bell"></i>
+        <div class="account">
+          <h4 class="dthub">DTHub</h4>
+          <img class="key" src="./img/msn3-5.png" alt="" />
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a href="#" class="logo">
+              <img src="./img/icon_global.png" />
+              <span class="nav-item1" style="color: black">Work Trace</span>
+            </a>
+          </li>
+          <li>
+            <a href="./main.html">
+              <i class="fas fa-solar-panel"></i>
+              <span class="nav-item">Item Panel</span>
+            </a>
+          </li>
+          <li>
+            <a href="./task.html">
+              <i class="fas fa-list-check"></i>
+              <span class="nav-item">Certification</span>
+            </a>
+          </li>
+          <li>
+            <a href="./report.html">
+              <i class="fas fa-users-rectangle"></i>
+              <span class="nav-item">Learning Portal</span>
+            </a>
+          </li>
+          <li>
+            <a href="./note.html">
+              <i class="fas fa-table-list"></i>
+              <span class="nav-item">Note Board</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-user-tie"></i>
+              <span class="nav-item">About me</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="main">
+        <div class="main-top">
+          <h1>In Progress</h1>
+          <i class="fas fa-user-cog"></i>
+        </div>
+
+        <section class="attendance">
+          <div class="attendance-list">
+            <!-- <h1>Work List</h1> -->
+            <div class="gradient-bar">
+              <div class="color-1"></div>
+              <div class="color-2"></div>
+              <div class="color-3"></div>
+              <div class="color-4"></div>
+              <div class="color-5"></div>
+              <div class="color-6"></div>
+              <div class="color-7"></div>
+              <div class="color-8"></div>
+              <div class="color-9"></div>
+            </div>
+            <div class="main-container">
+              <div class="steps-container">
+                <div class="step completed">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                  </svg>
+                  <div class="label completed">Initialize</div>
+                  <div class="icon completed">
+                    <i class="far fa-handshake"></i>
+                  </div>
+                </div>
+                <div class="linex completed"></div>
+                <div class="step completed">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                  </svg>
+                  <div class="label completed">Progress</div>
+                  <div class="icon completed">
+                    <i class="far fa-map"></i>
+                  </div>
+                </div>
+                <div class="linex next-step-in-progress"></div>
+                <div class="step in-progress">
+                  <div class="preloader"></div>
+                  <div class="label loading">Verify</div>
+                  <div class="icon in-progress">
+                    <i class="far fa-money-bill-alt"></i>
+                  </div>
+                </div>
+                <div class="linex prev-step-in-progress"></div>
+                <div class="step">
+                  <div class="label">Adapted</div>
+                  <div class="icon">
+                    <i class="far fa-newspaper"></i>
+                  </div>
+                </div>
+                <div class="linex"></div>
+                <div class="step">
+                  <div class="label">Completed</div>
+                  <div class="icon">
+                    <i class="fas fa-home"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-box">
+              <h2>Check process</h2>
+              <div class="chat-messages" id="chat-messages">
+                <div class="message received">Hello! How can I assist you?</div>
+              </div>
+              <div class="chat-input">
+                <input
+                  type="text"
+                  id="chat-input"
+                  placeholder="Type a message..."
+                  onkeypress="if(event.key === 'Enter') sendMessage()"
+                />
+                <button type="button" onclick="sendMessage()">Send</button>
+                <div id="spinner" class="spinner" style="display: none"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="attendance-listx">
+            <!-- Include Font Awesome for icons -->
+
+            <div class="work-item-container">
+              <div class="work-item-card cl1">
+                <i class="fas fa-money-bill-alt"></i>
+                <h3>PS01</h3>
+                <p>Remove Background</p>
+                <small>Snaptik</small>
+              </div>
+
+              <div class="work-item-card cl2">
+                <i class="fas fa-credit-card"></i>
+                <h3>PS02</h3>
+                <p>Chat GPT</p>
+                <small>Open AI</small>
+              </div>
+
+              <div class="work-item-card cl3">
+                <i class="fas fa-handshake"></i>
+                <h3>PS03</h3>
+                <p>Enhancer</p>
+                <small>SnapEdit</small>
+              </div>
+
+              <div class="work-item-card cl2">
+                <i class="fas fa-chart-pie"></i>
+                <h3>PS04</h3>
+                <p>Canva</p>
+                <small>Presenter</small>
+              </div>
+
+              <div class="work-item-card cl1">
+                <i class="fas fa-users"></i>
+                <h3>PS05</h3>
+                <p>Flaticon</p>
+                <small>Icon</small>
+              </div>
+
+              <div class="work-item-card cl1">
+                <i class="fas fa-user-secret"></i>
+                <h3>PS06</h3>
+                <p>GDB Online</p>
+                <small>Online Code Panel</small>
+              </div>
+
+              <div class="work-item-card cl2">
+                <i class="fas fa-store"></i>
+                <h3>PS07</h3>
+                <p>Wokwi</p>
+                <small>IoT Simulation</small>
+              </div>
+
+              <div class="work-item-card cl3">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>PS08</h3>
+                <p>Kaggle</p>
+                <small>Online Notebook</small>
+              </div>
+              <div class="work-item-card cl2">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>PS09</h3>
+                <p>Google Colab</p>
+                <small>Online Notebook</small>
+              </div>
+              <div class="work-item-card cl1">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>PS10</h3>
+                <p>IndiaBix</p>
+                <small>C Language Question</small>
+              </div>
+            </div>
+          </div>
+          <div class="attendance-listxx">
+            <div class="horizontal-timeline">
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h2>Stage 1</h2>
+                  <p>Initial planning and research.</p>
+                  <span class="date">2024-01-01</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h2>Stage 2</h2>
+                  <p>Designing the project framework.</p>
+                  <span class="date">2024-02-01</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h2>Stage 3</h2>
+                  <p>Development and implementation.</p>
+                  <span class="date">2024-03-01</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h2>Stage 4</h2>
+                  <p>Testing and bug fixing for reaching.</p>
+                  <span class="date">2024-04-01</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <h2>Stage 5</h2>
+                  <p>Final review and deployment.</p>
+                  <span class="date">2024-05-01</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+
+    <script>
+      // Firebase configuration (replace with your own Firebase config)
+      const firebaseConfig = {
+        apiKey: "AIzaSyAtj1SB8ZlBhwChqRr7V_9hJQSqCW5zdjo",
+        authDomain: "dht-trace.firebaseapp.com",
+        projectId: "dht-trace",
+        storageBucket: "dht-trace.appspot.com",
+        messagingSenderId: "436573278890",
+        appId: "1:436573278890:web:1c73f0e0c5f7f8ee60b6d3",
+        measurementId: "G-3G5HGVCL6W",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="infor.js"></script>
+  </body>
+</html>

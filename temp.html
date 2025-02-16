@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz with Countdown Clock</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #f4f4f9;
+      }
+
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 350px;
+        text-align: center;
+      }
+
+      .popup-content h2 {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        padding: 10px;
+        background: #f0f0f0;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      ul li:hover {
+        background: #ddd;
+      }
+
+      .clock {
+        margin-top: 20px;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border: 10px solid #333;
+        border-radius: 50%;
+      }
+
+      .hand {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        width: 2px;
+        height: 40%;
+        background: #333;
+        transform-origin: bottom;
+        transition: transform 1s ease;
+      }
+
+      .countdown-number {
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .correct {
+        color: green;
+      }
+
+      .wrong {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Popup Question -->
+    <div id="quizPopup" class="popup">
+      <div class="popup-content">
+        <h2>What is 2 + 2?</h2>
+        <ul>
+          <li onclick="checkAnswer('A')">A) 3</li>
+          <li onclick="checkAnswer('B')">B) 4</li>
+          <li onclick="checkAnswer('C')">C) 5</li>
+          <li onclick="checkAnswer('D')">D) 6</li>
+        </ul>
+
+        <!-- Countdown Clock -->
+        <div id="countdownClock" class="clock">
+          <div id="countdownHand" class="hand"></div>
+        </div>
+
+        <!-- Countdown Number -->
+        <div id="countdownNumber" class="countdown-number">10</div>
+
+        <div id="result" class="result"></div>
+      </div>
+    </div>
+
+    <!-- Sound -->
+    <audio id="quizSound" src="./music/kahoot.mp3"></audio>
+
+    <script>
+      let countdown = 10;
+      let timer;
+      let correctAnswer = "B"; // Correct answer is B
+      let isAnswered = false;
+      let countdownDuration = 10; // Set to 10 seconds
+      let hasStarted = false; // Flag to check if the timer has started
+
+      // Show the popup
+      document.getElementById("quizPopup").style.display = "flex";
+
+      // Function to start the countdown clock
+      function startCountdown() {
+        if (hasStarted) return; // Prevent starting the countdown more than once
+
+        hasStarted = true; // Set flag to true so we don't start again
+
+        let angle = 0;
+        timer = setInterval(function () {
+          if (countdown <= 0) {
+            clearInterval(timer);
+            showResult("Time's up!", false);
+          } else {
+            const hand = document.getElementById("countdownHand");
+            hand.style.transform = `rotate(${(angle += 36)}deg)`; // Each second, rotate 36 degrees (360 / 10)
+
+            // Update the countdown number
+            document.getElementById("countdownNumber").textContent = countdown;
+            countdown--;
+          }
+        }, 1000);
+      }
+
+      // Check answer and handle result
+      function checkAnswer(answer) {
+        if (isAnswered) return;
+
+        isAnswered = true;
+        startCountdown(); // Start the countdown when an answer is selected
+
+        // Play sound when answer is clicked
+        document.getElementById("quizSound").play();
+
+        // After the sound ends, show the result
+        document.getElementById("quizSound").onended = function () {
+          if (answer === correctAnswer) {
+            showResult("Correct!", true);
+          } else {
+            showResult("Wrong answer!", false);
+          }
+        };
+      }
+
+      // Display result
+      function showResult(message, isCorrect) {
+        const resultElement = document.getElementById("result");
+        resultElement.textContent = message;
+        resultElement.classList.add(isCorrect ? "correct" : "wrong");
+      }
+    </script>
+  </body>
+</html>

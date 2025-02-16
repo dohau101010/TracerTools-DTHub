@@ -917,7 +917,27 @@ select:hover {
 #closeModalBtn:hover {
   background-color: #388e3c;
 }
+.dthub {
+  margin-top: 4px;
+  color: #000;
+  font-size: 16px;
+  text-transform: capitalize;
+  background-image: linear-gradient(
+    to right,
+    #00f260,
+    #f79d00,
+    #0575e6,
+    #64f38c
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 
+  background-size: 300%;
+  background-position: -100%;
+
+  animation: animatedText 5s infinite alternate-reverse;
+}
 #but-quest {
   display: flex;
   justify-content: space-between;
